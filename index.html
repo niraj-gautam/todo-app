@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+        <title>Todo App</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">TODO<span class="logo-orange"> App</span></div>
+        </header>
+        <main class="main">
+            <div class="overview">
+                <div class="title">
+                    <h1 class="todo-done">Todo Done</h1>
+                    <span class="secondary-text" id="secondary-text"
+                        >Create a Todo</span
+                    >
+                </div>
+                <div class="todo-count" id="todo-count">0/0</div>
+            </div>
+            <div class="create-todo">
+                <input
+                    type="text"
+                    class="todo-input"
+                    id="todo-input"
+                    placeholder="write your task here"
+                    autocomplete="off"
+                />
+                <button
+                    class="create-btn"
+                    id="create-btn"
+                    onclick="createTodo()"
+                >
+                    +
+                </button>
+            </div>
+            <div class="todo-list" id="todo-list">
+                <!-- <div class="todo-items">
+                    <div class="items" id="item1">
+                        <div
+                            id="item-check-btn"
+                            class="item-check item-checked"
+                        ></div>
+                        <label for="item" class="item-name item-name-checked"
+                            >Task 1</label
+                        >
+                    </div>
+                    <div class="modify-btns">
+                        <button class="edit-btn" id="edit-btn" title="Edit">
+                            <img
+                                src="assets/edit-button.svg"
+                                alt="edit-button"
+                            />
+                        </button>
+                        <button
+                            class="delete-btn"
+                            id="delete-btn"
+                            title="Delete"
+                        >
+                            <img src="assets/trash.svg" alt="delete-button" />
+                        </button>
+                    </div>
+                </div>
+                <div class="todo-items">
+                    <div class="items" id="item2">
+                        <div
+                            id="item-check-btn"
+                            class="item-check item-unchecked"
+                        ></div>
+                        <label
+                            for="item"
+                            class="item-name item-name-unchecked"
+                            id="item-name"
+                            >Task 2</label
+                        >
+                    </div>
+                    <div class="modify-btns">
+                        <button class="edit-btn" title="Edit" id="edit-btn">
+                            <img
+                                src="assets/edit-button.svg"
+                                alt="edit-button"
+                            />
+                        </button>
+                        <button
+                            class="delete-btn"
+                            title="Delete"
+                            id="delete-btn"
+                        >
+                            <img src="assets/trash.svg" alt="delete-button" />
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+        </main>
+    </body>
+</html>
