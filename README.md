@@ -1,1 +1,2 @@
-# Persistent Todo App made using vanilla js with the help of Web Storage API.
+# Persistent Todo App.
+Made Using vanilla JS with Web Storage API - localStorage
