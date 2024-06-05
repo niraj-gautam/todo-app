@@ -15,6 +15,9 @@ let itemName = document.getElementById(`item${todoCount}-name`);
 
 if (localStorage.length > 1) {
     completedItemsCount = localStorage.getItem("todo(s)-done").split(",");
+    if (completedItemsCount.includes("1")) {
+        todoDone = completedItemsCount.filter((item) => item == "1").length;
+    }
     for (let i = 0; i < localStorage.length - 1; i++) {
         todoItemList.push(localStorage.getItem(`${i}`));
     }
@@ -24,15 +27,25 @@ if (localStorage.length > 1) {
     <div class="items" id="item${todoCount}">
         <div
              id="item${todoCount}-check-btn"
-            class="item-check item-unchecked"
-            title="Mark as done" onclick="markDone('${todoCount}', '${todoItemList[i]}')"
+            class="item-check ${
+                completedItemsCount[i] == "0"
+                    ? "item-unchecked"
+                    : "item-checked"
+            }"
+            title="Mark as done" onclick="markDone('${todoCount}', '${
+            todoItemList[i]
+        }')"
         ></div>
-        <label for="item" class="item-name" id="item${todoCount}-name"
+        <label for="item" class="item-name ${
+            completedItemsCount[i] == "0" ? "" : "item-name-checked"
+        }" id="item${todoCount}-name"
             >${todoItemList[i]}</label
         >
     </div>
     <div class="modify-btns">
-        <button class="edit-btn" id="item${todoCount}-edit-btn" title="Edit" onclick="editTodo(${todoCount}, '${todoItemList[i]}')">
+        <button class="edit-btn" id="item${todoCount}-edit-btn" title="Edit" onclick="editTodo(${todoCount}, '${
+            todoItemList[i]
+        }')">
             <img
                 src="assets/edit-button.svg"
                 alt="edit-button"
@@ -41,13 +54,18 @@ if (localStorage.length > 1) {
         <button
             class="delete-btn"
             id="item${todoCount}-delete-btn"
-            title="Delete" onclick="deleteTodo(${todoCount}, '${todoItemList[i]}')"
+            title="Delete" onclick="deleteTodo(${todoCount}, '${
+            todoItemList[i]
+        }')"
         >
             <img src="assets/trash.svg" alt="delete-button" />
         </button>
     </div>
 </div>`;
     }
+
+    todoCountDisp.textContent = `${todoDone}/${todoItemList.length}`;
+
     if (todoItemList.length == 0) {
         secondaryTextDisp.textContent = "Create a Todo";
     } else if (todoDone == 0) {
@@ -58,7 +76,11 @@ if (localStorage.length > 1) {
 }
 
 createTodo = () => {
-    if (todoInputText.value != "" && todoInputText.value.length > 3) {
+    if (
+        todoInputText.value != "" &&
+        todoInputText.value.length > 3 &&
+        !todoItemList.includes(todoInputText.value)
+    ) {
         todoCount++;
         todoItemList.push(todoInputText.value);
         completedItemsCount.push("0");
@@ -96,8 +118,9 @@ createTodo = () => {
         </button>
     </div>
 </div>`;
+        todoInputText.value = "";
     }
-    todoInputText.value = "";
+
     todoCountDisp.textContent = `${todoDone}/${todoItemList.length}`;
     secondaryTextDisp.textContent =
         todoItemList.length == 0 ? "Create a Todo" : "Finish the todo";

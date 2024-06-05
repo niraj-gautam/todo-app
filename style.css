@@ -30,7 +30,6 @@ header {
 
 .main {
     margin: 0 2rem 2rem 2rem;
-    /* background-color: limegreen; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,11 +43,7 @@ header {
     display: flex;
     gap: 2rem;
     align-items: center;
-    /* justify-content: space-between; */
 }
-
-/* .title {
-} */
 
 .todo-done {
     margin: 0;
@@ -72,7 +67,6 @@ header {
 }
 
 .create-todo {
-    /* background-color: greenyellow; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +92,6 @@ header {
     color: var(--clr-background);
     border-radius: 50%;
     border: none;
-    /* padding: 1rem; */
     font-size: 1.5rem;
     font-weight: 600;
     width: 2.25rem;
@@ -138,11 +131,9 @@ header {
 }
 
 .item-check {
-    /* display: inline-block; */
     height: 1.5rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    /* background-color: red; */
     cursor: pointer;
 }
 
@@ -151,7 +142,6 @@ header {
 }
 
 .item-unchecked:hover {
-    /* border: none; */
     background-color: hsla(11, 100%, 60%, 0.5);
 }
 
@@ -161,7 +151,6 @@ header {
 
 .item-checked:hover {
     background-color: hsla(115, 55%, 55%, 0.541);
-    /* border: 2px solid var(--clr-secondary); */
 }
 
 .item-name {
